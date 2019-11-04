@@ -8,7 +8,8 @@
         "php": "^7.2",
         "debril/feed-io": "^4.3",
         "laravel/lumen-framework": "^6.0",
-        "tymon/jwt-auth": "1.*"
+        "tymon/jwt-auth": "1.*" ,
+        "ext-json": "*"
     },
     "require-dev": {
         "codeception/codeception": "^3.1",

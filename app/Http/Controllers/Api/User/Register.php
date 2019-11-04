@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api\User;
 
-use App\User;
+use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Laravel\Lumen\Routing\Controller;
@@ -36,12 +36,12 @@ class Register extends Controller
     {
         $email = $request->get('email');
 
+        /** @var User $user */
         $user = User::firstOrNew(['email' => $email]);
 
         if (!$user->exists) {
             $password = $request->get('password');
-            $user->password = $this->hasher->make($password);
-            $user->save();
+            $user->setPassword($password)->save();
 
             return response()->json([
                 'status' => 'success',

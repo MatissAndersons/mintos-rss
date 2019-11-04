@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\WordAnalysis;
+use App\Services\WordAnalysis;
 
 class WordAnalysisTest extends TestCase
 {

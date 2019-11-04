@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Models;
+namespace App\Services;
+
+use App\Models\CommonWords;
 
 class WordAnalysis
 {
@@ -34,9 +36,7 @@ class WordAnalysis
      */
     public static function getWordCount($text)
     {
-        $words = static::getWordsFromText($text);
-        $wordCount = array_count_values($words);
-        return $wordCount;
+        return array_count_values(static::getWordsFromText($text));
     }
 
     /**

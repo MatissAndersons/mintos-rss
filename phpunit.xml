@@ -16,6 +16,14 @@
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">./app</directory>
+            <exclude>
+                <!-- Excluding the default Lumen code -->
+                <directory>app/Console</directory>
+                <directory>app/Events</directory>
+                <directory>app/Exceptions</directory>
+                <directory>app/Jobs</directory>
+                <directory>app/Providers</directory>
+            </exclude>
         </whitelist>
     </filter>
     <php>
