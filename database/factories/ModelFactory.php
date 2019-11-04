@@ -11,9 +11,14 @@
 |
 */
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+use Illuminate\Contracts\Hashing\Hasher;
+
+/** @var Hasher $hasher */
+$hasher = app()->make(Hasher::class);
+
+$factory->define(App\User::class, function (Faker\Generator $faker) use ($hasher) {
     return [
-        'name' => $faker->name,
         'email' => $faker->email,
+        'password' => $hasher->make($faker->password)
     ];
 });
